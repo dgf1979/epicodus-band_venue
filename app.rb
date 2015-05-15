@@ -15,11 +15,25 @@ get('/') do
 end
 
 ##BANDS
+#list all
 get('/bands') do
   erb(:bands)
 end
 
+#add new
+post('/bands') do
+  Band.create(name: params['name'])
+  redirect to('/bands')
+end
+
 ##VENUES
+#list all
 get('/venues') do
   erb(:venues)
+end
+
+#add new
+post('/venues') do
+  Venue.create(name: params['name'])
+  redirect to('/venues')
 end

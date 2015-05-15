@@ -23,6 +23,13 @@ describe('Application Testing:', { :type => :feature }) do
       expect(page).to have_content(band1.name)
       expect(page).to have_content(band2.name)
     end
+
+    it('adds a new band') do
+      visit('/bands')
+      fill_in('name', with: 'Muse')
+      click_button('Add')
+      expect(page).to have_content('Muse')
+    end
   end
 
   describe('Venue:') do
@@ -32,6 +39,13 @@ describe('Application Testing:', { :type => :feature }) do
       visit('/bands')
       expect(page).to have_content(venue1.name)
       expect(page).to have_content(venue2.name)
+    end
+
+    it('adds a new venue') do
+      visit('/venues')
+      fill_in('name', with: 'The Greek')
+      click_button('Add')
+      expect(page).to have_content('The Greek')
     end
   end
 

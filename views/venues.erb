@@ -1,7 +1,16 @@
 <div class='section'>
+  <header>All Venues</header>
   <ul>
-    <% Venues.all.each do | venue | %>
+    <% Venue.all.each do | venue | %>
       <li><%= venue.name %></li>
     <% end %>
   </ul>
+</div>
+
+<div class='section'>
+  <header><h3>Add a Venue</h3></header>
+  <form action='/venues' method='post'>
+    <input type='text' id='name' name='name'>
+    <button type='submit'>Add</button>
+  </form>
 </div>
