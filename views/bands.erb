@@ -1,12 +1,13 @@
 <div class='section'>
   <header><h3>All Bands</h3></header>
-  <ul>
-    <% Band.all.each do | band | %>
-      <li><a href='/bands/<%= band.id %>/edit'><%= band.name %></a></li>
-    <% end %>
-  </ul>
+  <div class='listbox'>
+    <ul>
+      <% Band.all.each do | band | %>
+        <li><a href='/bands/<%= band.id %>/edit'><%= band.name %></a></li>
+      <% end %>
+    </ul>
+  </div>
 </div>
-
 <div class='section'>
   <header><h3>Add a Band</h3></header>
   <form action='/bands' method='post'>

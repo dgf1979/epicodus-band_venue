@@ -1,10 +1,12 @@
 <div class='section'>
   <header><h3>All Venues</h3></header>
-  <ul>
-    <% Venue.all.each do | venue | %>
-      <li><a href='/venues/<%= venue.id %>'><%= venue.name %></a></li>
-    <% end %>
-  </ul>
+  <div class='listbox'>
+    <ul>
+      <% Venue.all.each do | venue | %>
+        <li><a href='/venues/<%= venue.id %>'><%= venue.name %></a></li>
+      <% end %>
+    </ul>
+  </div>
 </div>
 
 <div class='section'>

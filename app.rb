@@ -11,7 +11,7 @@ get('/test') do
 end
 
 get('/') do
-  erb(:index)
+  redirect to('/bands')
 end
 
 ###

@@ -1,9 +1,11 @@
 <div class='section'>
   <header><h3><%= @venue.name %></h3></header>
   <p>Bands that have played here include:</p>
-  <ul>
-    <% @venue.bands.each do |band| %>
-      <li><a href='/bands/<%= band.id %>/edit'><%= band.name %></a></li>
-    <% end %>
-  </ul>
+  <div class='listbox'>
+    <ul>
+      <% @venue.bands.each do |band| %>
+        <li><a href='/bands/<%= band.id %>/edit'><%= band.name %></a></li>
+      <% end %>
+    </ul>
+  </div>
 </div>

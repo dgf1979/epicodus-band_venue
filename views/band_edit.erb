@@ -10,7 +10,7 @@
 
 <div class='section'>
   <header><h3>Delete This Band</h3></header>
-  <form action='/bands/<%= @band_id %>/edit' method='post'>
+  <form action='/bands/<%= @band.id %>/edit' method='post'>
     <input type='hidden' name='_method' value='delete'>
     <button type='submit'>Delete</button>
   </form>
@@ -20,6 +20,7 @@
   <header><h3>Venues Played</h3></header>
   <form action='/bands/<%= @band.id %>/edit' method='post'>
     <input type='hidden' name='_method' value='patch'>
+    <div class='listbox'>
     <% Venue.all.each do |venue| %>
       <% if @band.venues.find_by(name: venue.name) == nil %>
         <input type="checkbox" name="venues[]" id="<%= venue.id %>" value="<%= venue.id %>">
@@ -28,6 +29,7 @@
       <% end %>
       <label for="<%= venue.id %>"><%= venue.name %></label><br>
     <% end %>
+    </div>
     <button type='submit'>Update Venues</button>
   </form>
 </div>
