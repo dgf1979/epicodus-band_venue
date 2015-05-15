@@ -1,12 +1,12 @@
-## [APPNAME] ##
+## Bands and Venues ##
 
 This application is meant to fulfill the requirements of an assignment through Epicodus code school. For more information on Epicodus, see <http://www.epicodus.com/>.
 
 ### Description ###
 
-[simple app description]
+Assigns and displays bands to venues and vice-versa, demonstrating many-to-many relationships via ActiveRecord
 
-**Assignment:** [assignment title]
+**Assignment:** Active Record Code Review (week 4)
 
 **<https://www.learnhowtoprogram.com/table-of-contents>**
 
@@ -16,7 +16,10 @@ Andrew Finstrom
 
 ### Setup ###
 ```
-    setup code or details here
+    bundle install
+    rake db:create
+    rake db:migrate
+    ruby app.rb
 ```
 
 ### License ###
