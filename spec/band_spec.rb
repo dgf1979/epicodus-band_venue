@@ -20,8 +20,13 @@ describe(Band) do
   end
 
   describe('#venues') do
-    it('has many-to-many association of venues and bands') do
-      expect('').to(eq(''))
+    it('has many-to-many association with venues') do
+      venue1 = Venue.create(name: 'The Roxy')
+      venue2 = Venue.create(name: 'Revolution Hall')
+      band = Band.create(name: 'The Chromatics')
+      band.venues.push(venue1)
+      band.venues.push(venue2)
+      expect(band.venues.count).to(eq(2))
     end
   end
 end

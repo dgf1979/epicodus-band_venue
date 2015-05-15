@@ -3,7 +3,6 @@ ENV['RACK_ENV'] = 'test'
 require("bundler/setup")
 Bundler.require(:default, :test)
 
-#ActiveRecord::Base.establish_connection(:test)
 ActiveRecord::Base.logger = Logger.new(STDOUT)
 
 Dir[File.dirname(__FILE__) + '/../lib/*.rb'].each { |file| require file }

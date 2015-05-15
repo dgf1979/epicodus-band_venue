@@ -9,3 +9,17 @@ get('/test') do
   erb(:test)
   #redirect to('/')
 end
+
+get('/') do
+  erb(:index)
+end
+
+##BANDS
+get('/bands') do
+  erb(:bands)
+end
+
+##VENUES
+get('/venues') do
+  erb(:venues)
+end
