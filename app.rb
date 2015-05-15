@@ -67,6 +67,12 @@ get('/venues') do
   erb(:venues)
 end
 
+#show one
+get('/venues/:venue_id') do |venue_id|
+  @venue = Venue.find(venue_id)
+  erb(:venue)
+end
+
 #add new
 post('/venues') do
   Venue.create(name: params['name'])

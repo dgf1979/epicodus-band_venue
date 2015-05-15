@@ -2,7 +2,7 @@
   <header><h3>All Venues</h3></header>
   <ul>
     <% Venue.all.each do | venue | %>
-      <li><%= venue.name %></li>
+      <li><a href='/venues/<%= venue.id %>'><%= venue.name %></a></li>
     <% end %>
   </ul>
 </div>
