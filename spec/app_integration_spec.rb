@@ -38,6 +38,13 @@ describe('Application Testing:', { :type => :feature }) do
       expect(page).to_not(have_content('Abba'))
       expect(page).to(have_content('The Rolling Stones'))
     end
+
+    it('deletes an existing band') do
+      band = Band.create(name: 'Abba')
+      visit("/bands/#{band.id}/edit")
+      click_button('Delete')
+      expect(page).to_not(have_content('Abba'))
+    end
   end
 
   describe('Venue:') do

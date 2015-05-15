@@ -44,6 +44,12 @@ patch('/bands/:band_id/edit') do |band_id|
   redirect to("/bands/#{band_id}/edit")
 end
 
+#delete
+delete('/bands/:band_id/edit') do |band_id|
+  Band.find(band_id).destroy
+  redirect to('/bands')
+end
+
 ##VENUES
 #list all
 get('/venues') do
