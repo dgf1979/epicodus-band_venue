@@ -5,7 +5,6 @@ require('./app')
 Capybara.app = Sinatra::Application
 set(:show_exceptions, false)
 
-
 describe('Sinatra framework check', { :type => :feature }) do
   it('verifies basic routing and view setup') do
     visit('/test')
@@ -29,6 +28,15 @@ describe('Application Testing:', { :type => :feature }) do
       fill_in('name', with: 'Muse')
       click_button('Add')
       expect(page).to have_content('Muse')
+    end
+
+    it('updates an existing band name') do
+      band = Band.create(name: 'Abba')
+      visit("/bands/#{band.id}/edit")
+      fill_in('name', with: 'The Rolling Stones')
+      click_button('Update')
+      expect(page).to_not(have_content('Abba'))
+      expect(page).to(have_content('The Rolling Stones'))
     end
   end
 

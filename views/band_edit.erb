@@ -1,0 +1,9 @@
+<header><h3><%= @band.name %></h3></header>
+<div class='section'>
+  <header><h3>Update Info</h3></header>
+  <form action='/bands/<%= @band.id %>/edit' method='post'>
+    <input type='hidden' name='_method' value='patch'>
+    <input type='text' name='name' id='name'>
+    <button type='submit'>Update</button>
+  </form>
+</div>

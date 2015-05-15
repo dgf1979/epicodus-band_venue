@@ -1,8 +1,8 @@
 <div class='section'>
-  <header>All Bands</header>
+  <header><h3>All Bands</h3></header>
   <ul>
     <% Band.all.each do | band | %>
-      <li><%= band.name %></li>
+      <li><a href='/bands/<%= band.id %>/edit'><%= band.name %></a></li>
     <% end %>
   </ul>
 </div>
