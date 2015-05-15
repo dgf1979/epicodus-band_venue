@@ -18,6 +18,11 @@ RSpec.configure do |config|
     #optionally do something before each test
   end
   config.after(:each) do
-    #optionally do something after each test
+    Band.all.each do |band|
+      band.destroy
+    end
+    Venue.all.each do |venue|
+      venue.destroy
+    end
   end
 end
