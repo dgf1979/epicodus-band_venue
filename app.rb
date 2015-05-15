@@ -14,6 +14,7 @@ get('/') do
   erb(:index)
 end
 
+###
 ##BANDS
 #list all
 get('/bands') do
@@ -34,12 +35,21 @@ end
 
 #update/edit
 patch('/bands/:band_id/edit') do |band_id|
+  band = Band.find(band_id)
+  #update venue list
+  if params.has_key?('venues')
+    band.venues.delete_all
+    params['venues'].each do |venue_id|
+      band.venues.push(Venue.find(venue_id))
+    end
+  end
+  #update single value fields
   band_updates = Hash.new
   if params.has_key?('name')
     band_updates.store(:name, params['name'])
   end
   unless band_updates.empty?
-    Band.find(band_id).update(band_updates)
+    band.update(band_updates)
   end
   redirect to("/bands/#{band_id}/edit")
 end
@@ -50,6 +60,7 @@ delete('/bands/:band_id/edit') do |band_id|
   redirect to('/bands')
 end
 
+###
 ##VENUES
 #list all
 get('/venues') do

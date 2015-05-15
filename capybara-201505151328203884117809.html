@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	</head>
+	<body>
+		<div>
+			<header><h2>The Decembrists</h2></header>
+<div class='section'>
+  <header><h3>Update Info</h3></header>
+  <form action='/bands/411/edit' method='post'>
+    <input type='hidden' name='_method' value='patch'>
+    <input type='text' name='name' id='name'>
+    <button type='submit'>Update Band</button>
+  </form>
+</div>
+
+<div class='section'>
+  <header><h3>Delete This Band</h3></header>
+  <form action='/bands//edit' method='post'>
+    <input type='hidden' name='_method' value='delete'>
+    <button type='submit'>Delete</button>
+  </form>
+</div>
+
+<div class='section'>
+  <header><h3>Venues Played</h3></header>
+  <form action='' method='post'>
+
+    
+      
+        <input type="checkbox" name="venue[]" id="242" value="242">
+      
+      <label class="checkbox" for="242">My Basement</label><br>
+    
+      
+        <input type="checkbox" name="venue[]" id="243" value="243">
+      
+      <label class="checkbox" for="243">Arlene Schnitzer Concert Hall</label><br>
+    
+    <button type='submit'>Update Venues</button>
+  </form>
+</div>
+
+		</div>
+	</body>
+</html>

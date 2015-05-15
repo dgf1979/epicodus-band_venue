@@ -34,9 +34,21 @@ describe('Application Testing:', { :type => :feature }) do
       band = Band.create(name: 'Abba')
       visit("/bands/#{band.id}/edit")
       fill_in('name', with: 'The Rolling Stones')
-      click_button('Update')
+      click_button('Update Band')
       expect(page).to_not(have_content('Abba'))
       expect(page).to(have_content('The Rolling Stones'))
+    end
+
+    it('updates the list of venues') do
+      band = Band.create(name: 'The Decembrists')
+      venue1 = Venue.create(name: 'My Basement')
+      venue2 = Venue.create(name: 'Arlene Schnitzer Concert Hall')
+      visit("/bands/#{band.id}/edit")
+      #save_and_open_page
+      check(venue2.id)
+      click_button('Update Venues')
+      expect(page).to(have_checked_field('Arlene Schnitzer Concert Hall'))
+      expect(page).to(have_unchecked_field('My Basement'))
     end
 
     it('deletes an existing band') do

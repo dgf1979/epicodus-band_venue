@@ -4,7 +4,7 @@
   <form action='/bands/<%= @band.id %>/edit' method='post'>
     <input type='hidden' name='_method' value='patch'>
     <input type='text' name='name' id='name'>
-    <button type='submit'>Update</button>
+    <button type='submit'>Update Band</button>
   </form>
 </div>
 
@@ -13,5 +13,21 @@
   <form action='/bands/<%= @band_id %>/edit' method='post'>
     <input type='hidden' name='_method' value='delete'>
     <button type='submit'>Delete</button>
+  </form>
+</div>
+
+<div class='section'>
+  <header><h3>Venues Played</h3></header>
+  <form action='/bands/<%= @band.id %>/edit' method='post'>
+    <input type='hidden' name='_method' value='patch'>
+    <% Venue.all.each do |venue| %>
+      <% if @band.venues.find_by(name: venue.name) == nil %>
+        <input type="checkbox" name="venues[]" id="<%= venue.id %>" value="<%= venue.id %>">
+      <% else %>
+        <input type="checkbox" name="venues[]" id="<%= venue.id %>" value="<%= venue.id %>" checked>
+      <% end %>
+      <label for="<%= venue.id %>"><%= venue.name %></label><br>
+    <% end %>
+    <button type='submit'>Update Venues</button>
   </form>
 </div>
