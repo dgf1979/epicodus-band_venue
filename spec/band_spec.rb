@@ -6,6 +6,17 @@ describe(Band) do
       band = Band.create(name: 'the uppers')
       expect(band.name).to(eq('The Uppers'))
     end
+
+    it('requires name param to create new') do
+      band = Band.create()
+      expect(band.id).to(eq(nil))
+    end
+
+    it('requires unique band names') do
+      band = Band.create(name: 'the doubles')
+      band_clone = Band.create(name: 'the Doubles')
+      expect(band_clone.id).to(eq(nil))
+    end
   end
 
   describe('#venues') do
